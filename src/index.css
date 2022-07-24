@@ -55,7 +55,7 @@ a:hover{
   
 }
 label{
-  font-size:18px ;
+  font-size:1.7em ;
 }
 
 .imagenri{
@@ -136,7 +136,9 @@ label{
 
 .dat{
   margin-left: 5em;
-  margin-top: 1em;
+  margin-top: 0.8em;
+  text-shadow: 2px 1px aqua;
+  font-size: 3em;
 }
 
 .cd2{
@@ -144,6 +146,111 @@ label{
   border-bottom-color: black;
   border-right-color: black; 
   border-width: 2px;
-  background-color: #e8eff2;
+  
+  background-color: white;
 
+}
+
+
+th{
+  font-size: 10px;
+  padding:3px ;
+
+}
+
+th, td {
+  border-bottom: 1px solid #999;
+}
+
+.tabl{   
+  border-radius: 10px;
+  box-shadow:  4px 4px 4px black; 
+  background-image: linear-gradient(to right bottom, #ffeded, #ffd9e4, #fbc7e6, #e7b9f1, #c1b0ff);
+  position: absolute;
+  top: 4em;
+  left: 4em;
+  padding:10px ;
+}
+
+.tabl2{
+
+  border-radius: 10px;
+  box-shadow:  4px 4px 4px black; 
+  background-image: linear-gradient(to right bottom, #ffeded, #ffd9e4, #fbc7e6, #e7b9f1, #c1b0ff);
+  position: absolute;
+  top: 34em;
+  left: 4em;
+  padding:10px ;
+}
+
+.mc{
+  position: absolute;
+  left: 2.1em;
+  top: 2.4em; 
+}
+
+.limInHume{
+  position: absolute;
+  left: 6em;
+  top: 2.4em; 
+}
+
+.limSuHume{
+  position: absolute;
+  left: 10em;
+  top: 2.4em;  
+}
+.frecH{
+  position: absolute;
+  left: 15em;
+  top: 2.4em; 
+}
+
+.frecAco{
+  position: absolute;
+  left: 20em;
+  top: 2.4em; 
+}
+.frecCom{
+  position: absolute;
+  left: 25em;
+  top: 2.4em; 
+}
+.limInHumeAxac{
+  position: absolute;
+  left: 30em;
+  top: 2.4em; 
+}
+
+.limSuHumeAxac{
+  position: absolute;
+  left: 35em;
+  top: 2.4em; 
+}
+
+.dataS{
+  position: absolute;
+  top: 16em; 
+  left: 4em;
+
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow:  4px 4px 4px black;
+}
+
+
+.dataS2{
+  position: absolute;
+  top: 46em; 
+  left: 4em;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow:  4px 4px 4px black;
+}
+
+
+h5{
+  
+  background-image: linear-gradient(to right bottom, #ffffff, #f3f3f3, #e7e7e7, #dbdbdb, #cfcfcf);
+  border-radius: 10px;
 }
