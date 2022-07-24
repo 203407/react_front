@@ -1,24 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import GeneralData from "./Componentes/GeneralData"
+import Tablas from "./Componentes/Tablas"
+import Inicio from "./Componentes/Inicio"
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import './index.css'
+
+import {Link} from "react-router-dom";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+ 
+   
+  <Router>
+  <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className="nvs">
+      <Container>
+        <Link to={"/"} className={"log_out_link"}>home</Link>        
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="me-auto">
+          <Link to={"/GeneralData"} className={"log_out_link"}>Datos generales</Link> 
+          <Link to={"/Tablas"} className={"log_out_link"}>Estadisticas</Link> 
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+
+
+<Routes>
+  <Route  exact path="/" element={<Inicio/>} ></Route>
+  <Route  exact path="/GeneralData" element={<GeneralData/>} ></Route>
+  <Route  exact path="/Tablas" element={<Tablas/>} ></Route>
+</Routes>
+
+</Router>
+
   );
 }
 
