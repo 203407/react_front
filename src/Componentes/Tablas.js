@@ -253,6 +253,7 @@ for(let j = 0;j<k;j++){
     }    
 
   //Frecuencia complementaria
+    console.log(tam)
   for (let i=0;i<k;i++){
     frec_com_hume[i] = tam - frec_acu_hume[i];
     frec_com_tem[i] = tam - frec_acu_tem[i];
@@ -388,7 +389,8 @@ for(let j = 0;j<k;j++){
    
 
 
-
+    moda_hume = moda_hume.toFixed(3);
+    moda_tem = moda_tem.toFixed(3)
     rango_hume = (limi_supe_exa_hume[k-1] - limi_infe_exa_hume[0]).toFixed(3);
     rango_tem = (limi_supe_exa_temp[k-1] - limi_infe_exa_temp[0]).toFixed(3);
 
@@ -405,13 +407,15 @@ for(let j = 0;j<k;j++){
 
     }    
 
+
     varian_hume = (varian_hume / tam).toFixed(3);
     varian_tem = (varian_tem / tam).toFixed(3);
 
     desvia_hume = Math.sqrt(varian_hume).toFixed(3);
     desvia_tem = Math.sqrt(varian_tem).toFixed(3);
     
-    
+    media_hume = media_hume.toFixed(3);
+    media_tem = media_tem.toFixed(3);
   }
  
 
@@ -419,7 +423,7 @@ for(let j = 0;j<k;j++){
       <div>
         
 
-    <Card style={{ width: '80rem' , height:' 65rem', top:'40px' }} className=" container cd2">
+    <Card style={{ width: '80rem' , height:'40rem', top:'40px' }} className=" container cd2">
     
     <div >
       
