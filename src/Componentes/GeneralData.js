@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "../index.css"
 import {Card} from "react-bootstrap";
 
-const urlpost = "http://192.168.2.2/gets.php";
+const urlpost = "http://192.168.2.5/gets.php";
 
 
 function GeneralData() {
@@ -59,7 +59,7 @@ function GeneralData() {
     <label className="temh">Temperatura agua : {datas !== '' ? datas[datas.length-1][2] : 0}</label>
       
    
-    <label className="temt">Temperatura tierra : {datas !== '' ? datas[datas.length-1][3] : 0}°</label>
+    <label className="temt">Huemdad tierra : {datas !== '' ? datas[datas.length-1][3] : 0}°</label>
         -
    
 

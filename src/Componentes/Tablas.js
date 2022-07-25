@@ -1,16 +1,22 @@
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import { Pie } from 'react-chartjs-2';
+
+
 import {Link} from "react-router-dom";
 import {useEffect, useState} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../index.css"
 import {Card, Collapse} from "react-bootstrap";
-import TbT from "./TbTem"
-const urlpost = "http://192.168.2.2/gets.php";
+const urlpost = "http://192.168.2.5/gets.php";
 
 
+
+ChartJS.register(ArcElement, Tooltip, Legend);
 
 
 
 var xd = 1;
+var xd2 = 1;
 var k=0;
 
 var limi_infe_temp = [];
@@ -62,11 +68,58 @@ var varian_tem = 0;
 var desvia_hume = 0;
 var desvia_tem=0;
 
+var temperatura = [];
+var humedad = [];
+var clases = [];
+
 function Tablas() {
 
    const [datas,setDatas] = useState('');  
 
+  const dataG = (dat) => {
+    
+    let data = {
+      labels: clases,
+      datasets: [
+        {
+          label: '# of Votes',
+          data: dat,
+  
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)',
+            'rgba(6, 115, 90, 0.2)',
+          ],
+          borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)',
+            'rgba(6, 115, 90, 0.5)',
+          ],
+          borderWidth: 1,
+        },
+      ],
+    };
+  
 
+    return data;
+
+  }
+
+
+  
+
+
+
+
+   
   useEffect(() => {
     pot();
   
@@ -100,8 +153,8 @@ function Tablas() {
 
 
   const   order =   (datas) => {
-    var temperatura = [];
-    var humedad = [];
+    temperatura = [];
+    humedad = [];
     for(let i =0;i<datas.length;i++){
       temperatura[i] = parseFloat(datas[i][1]);
       humedad[i] =  parseFloat(datas[i][2]);
@@ -118,6 +171,9 @@ function Tablas() {
    k = 1 + 3.322*Math.log10(tam);    
   k = k.toFixed();  
   
+  for(let i = 0;i<k;i++){
+    clases[i] = "clase " + (i+1);
+  }
   var rangoTem = temperatura[tam] - temperatura[0];
   var rangoHume = humedad[tam] - humedad[0]; 
     
@@ -423,10 +479,10 @@ for(let j = 0;j<k;j++){
       <div>
         
 
-    <Card style={{ width: '80rem' , height:'40rem', top:'40px' }} className=" container cd2">
+    <Card style={{ width: '80rem' , height:'88rem', top:'40px' }} className=" container cd2">
     
     <div >
-      
+      <h2 className='titleT'>Datos generales de la humedad de la tierra</h2>
       <table style={{ width: '40rem'} } className="tabl">
                 <thead>
                 <tr>
@@ -469,7 +525,6 @@ for(let j = 0;j<k;j++){
                 )}                  
                 </tr>
 
-                {/* datas !== '' ? datas[datas.length-1][3] : 0 */}
                 <tr className="frecH">               
                 {frec_hume.map(item =>            
                     <tr>{ item }</tr>   )}                  
@@ -511,7 +566,7 @@ for(let j = 0;j<k;j++){
         </div>
         
           
-
+        <h2 className='titleT2'>Datos generales de la temperatura Ambiente</h2>
 
         <table style={{ width: '40rem'} } className="tabl2">
     <thead>
@@ -532,7 +587,7 @@ for(let j = 0;j<k;j++){
     
     <tr >               
     {marca_tem.map(item =>            
-        <tr >{xd++}</tr>  
+        <tr >{xd2++}</tr>  
     )}                  
     </tr>
     
@@ -555,7 +610,6 @@ for(let j = 0;j<k;j++){
     )}                  
     </tr>
 
-    {/* datas !== '' ? datas[datas.length-1][3] : 0 */}
     <tr className="frecH">               
     {frec_tem.map(item =>            
         <tr>{ item }</tr>   )}                  
@@ -594,11 +648,14 @@ for(let j = 0;j<k;j++){
           <h5>Varianza : {varian_tem}</h5>
           <h5>Desviacion estandar : {desvia_tem}</h5>
         </div>
-{/* 
-        <TbT  
-        marca_te = {marca_tem} limi_infe_te = {limi_infe_temp} limi_supe_te = {limi_supe_temp}  frec_te = {frec_tem}  
-        frec_acu_te = {frec_acu_tem}  frec_com_te = {frec_com_tem}  limi_infe_exa_te = {limi_infe_exa_temp} limi_supe_exa_te = {limi_supe_exa_temp}
-        ></TbT> */}
+
+        <div className='diagram'>
+            <Pie data={dataG(frec_hume)} />
+        </div>
+        
+        <div className='diagram2'>
+            <Pie data={dataG(frec_tem)} />
+        </div>
     </div>
     
     </Card>

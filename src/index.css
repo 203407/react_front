@@ -146,27 +146,6 @@ th, td {
 }
 
 
-.tabl{   
-  border-radius: 10px;
-  background-color: rgb(62, 62, 62);
-  color: #fff;
-  position: absolute;
-  top: 5.5em;
-  left: 4em;
-  padding:10px ;
-}
-
-.tabl2{
-
-  border-radius: 10px;
-  background-color: rgb(62, 62, 62);
-  color: #fff;
-  position: absolute;
-  top: 26.5em;
-  left: 4em;
-  padding:10px ;
-}
-
 .mc{
   position: absolute;
   left: 2.1em;
@@ -212,11 +191,55 @@ th, td {
   top: 2.4em; 
 }
 
+.titleT{
+  position: absolute;
+  top:10px;
+  left: 15%;
+  font-size: 2.5em;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 4px 4px rgb(41, 41, 41);
+}
+
+.titleT2{
+  position: absolute;
+  top:17em;
+  left: 15%;
+  font-size: 2.5em;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 4px 4px rgb(41, 41, 41);
+}
+
+
+
+.tabl{   
+  border-radius: 10px;
+  background-color: rgb(62, 62, 62);
+  color: #fff;
+  position: absolute;
+  top: 5em;
+  left: 16em;
+  padding:10px ;
+}
+
+.tabl2{
+
+  border-radius: 10px;
+  background-color: rgb(62, 62, 62);
+  color: #fff;
+  position: absolute;
+  top: 47em;
+  left: 16em;
+  padding:10px ;
+}
+
+
 .dataS{
 
   position: absolute;
-  top: 4em; 
-  left: 45em;
+  top: 20em;
+  left: 40em;
   padding: 5px;
   border-radius: 10px;
   background-color: #262324;
@@ -226,9 +249,9 @@ th, td {
 
 .dataS2{
   position: absolute;
-  top: 25em; 
-  left: 45em;
-  padding: 10px;
+  top: 62em; 
+  left: 40em;
+  padding: 5px;
   border-radius: 10px;
   background-color: #262324;
 }
@@ -241,4 +264,25 @@ h5{
     border-bottom: 1px solid;
     font-size: 16px;
     color: #fff;
+}
+
+.diagram{
+  width: 300px;
+  height: 300px;
+   background-color: #fff;
+  border-radius: 20px;
+  position: absolute;
+  top: 20em;
+  left: 10em;
+}
+
+
+.diagram2{  
+  width: 300px;
+  height: 300px;
+   background-color: #fff;
+  border-radius: 20px;
+  position: absolute;
+  top: 62em; 
+  left: 10em;
 }
