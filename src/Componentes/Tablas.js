@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "../index.css"
 import {Card, Collapse} from "react-bootstrap";
 import TbT from "./TbTem"
-const urlpost = "http://192.168.2.3/gets.php";
+const urlpost = "http://192.168.2.2/gets.php";
 
 
 
