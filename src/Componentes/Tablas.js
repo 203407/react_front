@@ -500,7 +500,7 @@ for(let j = 0;j<k;j++){
       //nivel de confianza que es igual a el 95% === 1.96
      z = 1.96;
      nc = 0.95;
-      // margen de error el erro que yo deseo tomar 
+      // margen de error el error que yo deseo tomar 
      e = 0.06;
       //Probabilida de exito  
      p = 0.5;      
@@ -526,7 +526,7 @@ for(let j = 0;j<k;j++){
     mediaMuestraH = mediaMuestraH/n;
     mediaMuestraT = mediaMuestraT/n;
     
-    // nivel de signigicancia 
+    // nivel de significancia 
      ns = 0.05;  
     
     // z tabular
