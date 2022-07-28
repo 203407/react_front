@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "../index.css"
 import {Card} from "react-bootstrap";
 
-const urlpost = "http://192.168.2.5/gets.php";
+const urlpost = "https://192.168.1.65/gets.php";
 
 
 function GeneralData() {

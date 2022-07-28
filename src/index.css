@@ -286,3 +286,49 @@ h5{
   top: 62em; 
   left: 10em;
 }
+
+.tabl3{
+
+  background-color: rgb(62, 62, 62);
+  color: #fff;
+  padding:10px ;
+  border: solid;
+  border-color: rgb(255, 254, 254);  
+  border-radius: 10px;    
+}
+
+
+.dcl{
+  overflow: auto;
+	overflow-y: auto;
+  height:30em;
+  width:45em;
+  position: absolute;
+  top: 2em;
+  left: 7em;
+  border-radius: 10px;
+}
+
+
+
+.ths{
+
+  background-color: #262324;
+  color: #fff;
+  font-size: 20px;
+
+}
+
+.trtb{
+  text-align: center;
+}
+
+.cd2{
+
+  box-shadow:  5px 5px 5px black;
+  border-bottom-color: black;
+  border-right-color: black; 
+  border-width: 2px;
+  background-color: #2894EF;
+
+}

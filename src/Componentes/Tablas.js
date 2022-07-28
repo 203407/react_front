@@ -7,7 +7,7 @@ import {useEffect, useState} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../index.css"
 import {Card, Collapse} from "react-bootstrap";
-const urlpost = "http://192.168.2.5/gets.php";
+const urlpost = "https://192.168.1.65/gets.php";
 
 
 
@@ -19,7 +19,7 @@ var xd = 1;
 var xd2 = 1;
 var k=0;
 
-var limi_infe_temp = [];
+var limi_infe_temp =[];
 var limi_supe_temp = [];
 
 
@@ -72,6 +72,13 @@ var temperatura = [];
 var humedad = [];
 var clases = [];
 
+var muestraT = [];
+var muestraH = [];
+
+var mediaMuestraH =0;
+var mediaMuestraT =0;
+
+
 function Tablas() {
 
    const [datas,setDatas] = useState('');  
@@ -113,12 +120,6 @@ function Tablas() {
 
   }
 
-
-  
-
-
-
-
    
   useEffect(() => {
     pot();
@@ -152,13 +153,23 @@ function Tablas() {
   }
 
 
-  const   order =   (datas) => {
+  const   order =   (datass) => {
     temperatura = [];
     humedad = [];
-    for(let i =0;i<datas.length;i++){
-      temperatura[i] = parseFloat(datas[i][1]);
-      humedad[i] =  parseFloat(datas[i][2]);
+
+    if(datas == ''){
+      for(let i =0;i<datass.length;i++){
+        temperatura[i] = parseFloat(datass[i][1]);
+        humedad[i] =  parseFloat(datass[i][2]);
+      }
+    }else{
+      for(let i =0;i<datas.length;i++){
+        temperatura[i] = parseFloat(datas[i][1]);
+        humedad[i] =  parseFloat(datas[i][2]);
+      }
     }
+
+    
     temperatura.sort();
     humedad.sort();
 
@@ -309,7 +320,7 @@ for(let j = 0;j<k;j++){
     }    
 
   //Frecuencia complementaria
-    console.log(tam)
+
   for (let i=0;i<k;i++){
     frec_com_hume[i] = tam - frec_acu_hume[i];
     frec_com_tem[i] = tam - frec_acu_tem[i];
@@ -472,6 +483,44 @@ for(let j = 0;j<k;j++){
     
     media_hume = media_hume.toFixed(3);
     media_tem = media_tem.toFixed(3);
+
+
+    //////////////// Corte 3 Hipotesis
+      //nivel de confianza que es igual a el 95% === 1.96
+    var z = 1.96;
+    var nc = 0.95;
+      // margen de error el erro que yo deseo tomar 
+    var e = 0.06;
+      //Probabilida de exito  
+    var p = 0.5;      
+      // probabialida de que no ocurra el evento
+    var q = 1 - p;
+
+      //tamaño de la muestra
+    var n =  (  (tam *   Math.pow(z,2) * p * q ) / ( Math.pow(e,2) * ( tam - 1 ) +  Math.pow(z,2) * p * q )  ).toFixed();
+
+    
+    for(let i  = 0;i<n;i++){
+      let rand = Math.floor(Math.random()*humedad.length);
+      muestraH[i]  =  humedad[rand];
+      mediaMuestraH += muestraH[i];
+    }
+    
+    for(let i  = 0;i<n;i++){
+      let rando = Math.floor(Math.random()*temperatura.length);
+      muestraT[i]  =  temperatura[rando];
+      mediaMuestraT += muestraT[i];
+    }
+  
+    mediaMuestraH = mediaMuestraH/n;
+    mediaMuestraT = mediaMuestraT/n;
+    
+    // nivel de signigicancia 
+    var ns = 0.05;  
+    
+    
+    
+
   }
  
 

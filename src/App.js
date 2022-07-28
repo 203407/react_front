@@ -2,6 +2,8 @@ import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import GeneralData from "./Componentes/GeneralData"
 import Tablas from "./Componentes/Tablas"
 import Inicio from "./Componentes/Inicio"
+import TablaSensores from "./Componentes/TablaSensores";
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Container from 'react-bootstrap/Container';
@@ -25,6 +27,7 @@ function App() {
           <Nav className="me-auto">
           <Link to={"/GeneralData"} className={"log_out_link"}>Datos generales</Link> 
           <Link to={"/Tablas"} className={"log_out_link"}>Estadisticas</Link> 
+          <Link to={"/TablaSensores"} className={"log_out_link"}>Tabla sensores</Link> 
           </Nav>
         </Navbar.Collapse>
       </Container>
@@ -35,6 +38,7 @@ function App() {
   <Route  exact path="/" element={<Inicio/>} ></Route>
   <Route  exact path="/GeneralData" element={<GeneralData/>} ></Route>
   <Route  exact path="/Tablas" element={<Tablas/>} ></Route>
+  <Route  exact path="/TablaSensores" element={<TablaSensores/>} ></Route>
 </Routes>
 
 </Router>
