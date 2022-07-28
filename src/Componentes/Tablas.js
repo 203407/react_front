@@ -1,7 +1,6 @@
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
-
-
+import docss from '../docs/test.jpg';
 import {Link} from "react-router-dom";
 import {useEffect, useState} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -72,11 +71,23 @@ var temperatura = [];
 var humedad = [];
 var clases = [];
 
-var muestraT = [];
-var muestraH = [];
+var muestraT = [''];
+var muestraH = [''];
 
 var mediaMuestraH =0;
 var mediaMuestraT =0;
+
+   var z = 0;
+   var nc = 0;     
+   var e = 0;     
+   var p = 0;          
+   var q =0;
+   var n = 0;
+   var ns = 0;     
+   var zT = 0;   
+   var zC = 0;
+
+
 
 
 function Tablas() {
@@ -487,17 +498,17 @@ for(let j = 0;j<k;j++){
 
     //////////////// Corte 3 Hipotesis
       //nivel de confianza que es igual a el 95% === 1.96
-    var z = 1.96;
-    var nc = 0.95;
+     z = 1.96;
+     nc = 0.95;
       // margen de error el erro que yo deseo tomar 
-    var e = 0.06;
+     e = 0.06;
       //Probabilida de exito  
-    var p = 0.5;      
+     p = 0.5;      
       // probabialida de que no ocurra el evento
-    var q = 1 - p;
+     q = 1 - p;
 
       //tamaño de la muestra
-    var n =  (  (tam *   Math.pow(z,2) * p * q ) / ( Math.pow(e,2) * ( tam - 1 ) +  Math.pow(z,2) * p * q )  ).toFixed();
+     n =  (  (tam *   Math.pow(z,2) * p * q ) / ( Math.pow(e,2) * ( tam - 1 ) +  Math.pow(z,2) * p * q )  ).toFixed();
 
     
     for(let i  = 0;i<n;i++){
@@ -516,19 +527,24 @@ for(let j = 0;j<k;j++){
     mediaMuestraT = mediaMuestraT/n;
     
     // nivel de signigicancia 
-    var ns = 0.05;  
+     ns = 0.05;  
     
+    // z tabular
+     zT = 1.645;
     
-    
+    //z c    
+     zC = ( ( (mediaMuestraH - media_hume) / (desvia_hume) ) )  /   (Math.sqrt(n) );
 
   }
  
+
+
 
     return (
       <div>
         
 
-    <Card style={{ width: '80rem' , height:'88rem', top:'40px' }} className=" container cd2">
+    <Card style={{ width: '80rem' , height:'160rem', top:'40px' }} className=" container cd2">
     
     <div >
       <h2 className='titleT'>Datos generales de la humedad de la tierra</h2>
@@ -689,7 +705,7 @@ for(let j = 0;j<k;j++){
 
 </table> 
         <div className="dataS2">
-          <h5 style={{}}>Datos estadisticos  de la Temperatura Ambiente</h5>
+          <h5 >Datos estadisticos  de la Temperatura Ambiente</h5>
           <h5>Media : {media_tem}</h5>
           <h5>mediana : {mediana_tem}</h5>
           <h5>Moda : {moda_tem}</h5>
@@ -705,7 +721,68 @@ for(let j = 0;j<k;j++){
         <div className='diagram2'>
             <Pie data={dataG(frec_tem)} />
         </div>
+
+        <h2 className='titleT3'>Datos sobre la Hipotesis</h2>
+        
+        <div className="dataS3">
+          <h5 style={{textAlign: 'center'}}>Datos estadisticos  de la Temperatura Ambiente</h5>
+          <h5>Nivel de confizana : {nc} </h5>
+          <h5>Margen de error : {e} </h5>
+          <h5>Probabilidad de exito : {p}</h5>
+          <h5>Probabilidad de fracaso  : {q}</h5>
+          <h5>Tamaño de la muestra :  {n}</h5>  
+          <h5>Nivel de significancia:  {ns}</h5>                
+          <h5>z tabular :  {zT}</h5>  
+          <h5>zc :  {zC}</h5>  
+        </div>        
+
+        <div className="dcl2">
+
+        <table className="tabl3">
+          <thead>
+          <tr className="trtb">
+              <th className="ths">Datos muestra</th>        
+            </tr>
+          </thead>        
+        <tbody>             
+        {muestraH === '' ? <tr><td colSpan="3">Sin datos</td> </tr>: muestraH.map(item =>
+            <tr  className="trtb">
+                <td>{item}</td>                                                        
+            </tr>
+            )
+        }
+        </tbody>          
+        </table> 
+
+
+         
+</div>
+
+      <img src={docss} className='god'/>
+   
+        <text className='testada'>
+        Se hizo la gráfica en base a los cálculos determinados por el programa.
+        <br></br>
+        H0 : u = 3134.104          
+        <br></br>
+        H1 : u  	&lt; 3134.104 
+        <br></br>
+        Conclusión:
+        <br></br>
+        Entra a la zona de aceptación ya que Zc = 0.034780065548499814
+        <br></br>
+        esta antes de la Z tabular = 1.645
+        aceptamos H0 y rechazamos H1
+
+        </text>
+
     </div>
+
+
+
+
+
+
     
     </Card>
 
@@ -713,4 +790,4 @@ for(let j = 0;j<k;j++){
     );
   }
 
-  export default Tablas;
+  export default Tablas;    

@@ -9,7 +9,7 @@ body {
   text-decoration: none;
   padding: 2px;
   font-size: 19px;
-  padding-right: 3em
+  margin-right: 3em;
 }
 a:hover{
   color: yellow;
@@ -256,6 +256,16 @@ th, td {
   background-color: #262324;
 }
 
+.dataS3{
+  position: absolute;
+  top: 90em; 
+  left: 33em;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: #262324;
+  width: 30em;
+}
+
 
 h5{
     background-color: #262324;
@@ -332,3 +342,58 @@ h5{
   background-color: #2894EF;
 
 }
+
+
+.titleT3{
+  position: absolute;
+  top:34em;
+  left: 9em;
+  font-size: 2.5em;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 4px 4px rgb(41, 41, 41);
+}
+
+
+.dcl2{
+  overflow: auto;
+	overflow-y: auto;
+  height:20em;
+  width:10.3em;
+  position: absolute;
+  top: 90em;
+  left: 15em;
+  border-radius: 10px;
+}
+
+.tabl4{
+  background-color: rgb(62, 62, 62);
+  color: #fff;
+  padding:10px ;
+  border: solid;
+  border-color: rgb(255, 254, 254);  
+  border-radius: 10px;    
+}
+
+
+.god{
+  position: absolute;
+  top: 115em;
+  width: 30em;
+  left: 3em;
+  height: auto;
+  border-radius: 30px;
+}
+
+
+.testada{
+  position: absolute;
+  top: 94em;
+  right: 2em;
+  border: solid;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #262324;
+  color: white;
+  font-size: 20px;  
+} 
